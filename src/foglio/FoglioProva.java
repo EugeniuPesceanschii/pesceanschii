@@ -1,9 +1,10 @@
 
 package foglio;
 
+import java.text.*;
+import java.util.*;
 
 public class FoglioProva {
-
     
     public static void main(String[] args) {
         // TODO code application logic here
@@ -11,9 +12,13 @@ public class FoglioProva {
         
         double area = f.calcArea();
         System.out.println(area);
-                
+         
+        //Per stampare un numero con solo 2 numeri dopo la virgola
         double diagonale = f.calcDiagonale();
-        System.out.println(diagonale);
+DecimalFormatSymbols formatysm_it = new DecimalFormatSymbols(Locale.ITALIAN);
+        NumberFormat formatter_it = new DecimalFormat ("###,###.##", formatysm_it);
+        String str = formatter_it.format(diagonale);
+                System.out.println(str);
         
         f.impostaAltezza(25);
         System.out.println(f.getAltezza());
@@ -26,6 +31,11 @@ public class FoglioProva {
         
         String s = f.stampa();
         System.out.println(s);
+    
+        //Per fare random:
+        Random r = new Random();
+        int n = r.nextInt(10)+1;
+        System.out.println(n);
     }
     
 }
