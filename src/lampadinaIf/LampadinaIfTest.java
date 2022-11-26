@@ -16,5 +16,4 @@ public class LampadinaIfTest {
         String s = g.stampa();
         System.out.println(s);
     }
-
 }
