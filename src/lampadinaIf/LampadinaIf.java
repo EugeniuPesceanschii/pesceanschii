@@ -62,20 +62,21 @@ public class LampadinaIf {
         if (stato == false && nVolteAccesa < nMaxAccensioni) {
 
             stato = true;
+            nVolteAccesa++;
 
             if (nVolteAccesa >= nMaxAccensioni - 10) {
-                a = "La lampadina è stata accesa, potrà essere accesa altre 10"
+                a = "La lampadina è stata accesa, potrà essere accesa altre "
+                        + (nMaxAccensioni - nVolteAccesa)
                         + " volte prima di raggiungere il numero massimo\n di"
                         + " accensioni.";
             }
-        } else { 
+        } else //not (stato == false && nVolteAccesa < nMaxAccensioni) 
+        {
             if (nVolteAccesa == nMaxAccensioni) {
-            a = "La lampadina non può essere accesa perché ha raggiunto "
-                    + "il numero massimo di accensioni";
+                a = "La lampadina non può essere accesa perché ha raggiunto "
+                        + "il numero massimo di accensioni";
             }
         }
-        
-        nVolteAccesa++;
         return a;
     }
 
@@ -85,8 +86,8 @@ public class LampadinaIf {
 
     public String stampa() {
         String s;
-        s = "\nmarca: " + marca + "\ncoloreLuce: " + coloreLuce + 
-                "\nnMaxAccensioni: " + nMaxAccensioni + "\nnVolteAccesa: " 
+        s = "\nmarca: " + marca + "\ncoloreLuce: " + coloreLuce
+                + "\nnMaxAccensioni: " + nMaxAccensioni + "\nnVolteAccesa: "
                 + nVolteAccesa + "\nstato: " + stato;
         return s;
     }
