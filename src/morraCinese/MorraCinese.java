@@ -28,37 +28,54 @@ public class MorraCinese {
         return nome2;
     }
 
-    public String gioca(int giocata1, int giocata2) {
+    public String gioca(int giocata2) {
         Random r = new Random();
         int n = r.nextInt(3) + 1;
-        //int m = r.nextInt(3) + 1;
-        giocata1 = n;
-        //giocata2 = m;
+        int giocata1 = n;
         String g = "";
 
         if (giocata1 == 1 && giocata2 == 1 || giocata1 == 2 && giocata2 == 2
                 || giocata1 == 3 && giocata2 == 3) {
-            g = "Pareggio, i giocatori hanno giocato la stessa mano";
+            g = "\nPareggio, i giocatori hanno giocato la stessa mano";
         } else if (giocata1 == 1 && giocata2 == 2) {
-            g = "Vince " + nome2 + ", ha giocato sasso contro forbici";
+            g = "\nVince " + nome2 + ", ha giocato sasso contro forbici";
         } else if (giocata1 == 1 && giocata2 == 3) {
-            g = "Vince " + nome1 + ", ha giocato forbici contro carta";
+            g = "\nVince " + nome1 + ", ha giocato forbici contro carta";
         } else if (giocata1 == 2 && giocata2 == 1) {
-            g = "Vince " + nome1 + ", ha giocato sasso contro forbici";
+            g = "\nVince " + nome1 + ", ha giocato sasso contro forbici";
         } else if (giocata1 == 2 && giocata2 == 3) {
-            g = "Vince " + nome2 + ", ha giocato carta contro sasso";
+            g = "\nVince " + nome2 + ", ha giocato carta contro sasso";
         } else if (giocata1 == 3 && giocata2 == 1) {
-            g = "Vince " + nome2 + ", ha giocato forbici contro carta";
+            g = "\nVince " + nome2 + ", ha giocato forbici contro carta";
         } else if (giocata1 == 3 && giocata2 == 2) {
-            g = "Vince " + nome1 + ", ha giocato carta contro sasso";
+            g = "\nVince " + nome1 + ", ha giocato carta contro sasso";
         }
 
         return g;
     }
 
+    private String decGiocata(int giocata2) {/*serve per verificare che si sia
+        inserito il numero corretto per la giocata
+        */
+        String stampa;
+        
+        switch (giocata2) {
+            case 1:
+                stampa = "CARTA";
+                break;
+            case 2:
+                stampa = "FORBICE";
+            case 3:
+                stampa = "SASSO";
+            default:
+                stampa = "giocata non prevista";
+        }
+        return stampa;
+    }
+    
     public String stampa() {
         String s = "\nNome del primo giocatore: " + nome1 + "\nNome del secondo "
-                + "giocatore: " + nome2;
+                + "giocatore: " + nome2; 
         return s;
     }
 }
