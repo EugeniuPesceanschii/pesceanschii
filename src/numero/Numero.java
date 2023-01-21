@@ -11,11 +11,11 @@ public class Numero {
     public void setVal1(int v) {
         val1 = v;
     }
-    
+
     public int getVal1() {
         return val1;
     }
-    
+
     public String somma(int val2) {
         String s;
         int somma = 0;
@@ -31,12 +31,10 @@ public class Numero {
 
         if (val1 > val2) {
             b = "Il primo valore è maggiore";
-        } else 
-            if (val1 < val2) {
-                b = "Il secondo valore è maggiore";
-            } else 
-                if (val1 == val2) {
-                    b = "I due valori sono uguali";
+        } else if (val1 < val2) {
+            b = "Il secondo valore è maggiore";
+        } else if (val1 == val2) {
+            b = "I due valori sono uguali";
         }
         return b;
     }
@@ -58,10 +56,19 @@ public class Numero {
         }
         return n;
     }
-    
-    public String stampa () {
+
+    public String moltiplicazionePerSomma(int moltiplicatore) {
+        int risultato = 0;
+
+        while (moltiplicatore * val1 != risultato) {
+            risultato += val1;
+        }
+        return "il risultato è: " + risultato;
+    }
+
+    public String stampa() {
         String s;
-        
+
         s = "Il valore 1 vale: " + val1;
         return s;
     }

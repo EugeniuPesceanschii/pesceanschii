@@ -6,7 +6,7 @@ public class NumeroTest {
         
           int val2 = 4;
           int somma = -1;
-          Numero n = new Numero(-5);
+          Numero n = new Numero(5);
           
           System.out.println(n.somma(val2));
           
@@ -15,6 +15,8 @@ public class NumeroTest {
           System.out.println(n.pariDispari(somma));
           
           System.out.println(n.isNegativo(somma));
+          
+          System.out.println(n.moltiplicazionePerSomma(3));
           
           System.out.println(n.stampa());
     } 
