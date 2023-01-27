@@ -18,6 +18,9 @@ public class NumeroTest {
           
           System.out.println(n.moltiplicazionePerSomma(3));
           
+          System.out.println(n.tabellina());
+          
           System.out.println(n.stampa());
+          
     } 
 }

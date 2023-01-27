@@ -66,6 +66,17 @@ public class Numero {
         return "il risultato è: " + risultato;
     }
 
+    public String tabellina() {
+        String t = "";
+        int multiplo = 0;
+        
+        while(multiplo != val1 * 10) {
+            multiplo += val1;
+            t += "\nMultiplo: " + multiplo;
+        }
+        return t;
+    }
+    
     public String stampa() {
         String s;
 
