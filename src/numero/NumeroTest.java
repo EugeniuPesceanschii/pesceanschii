@@ -22,5 +22,6 @@ public class NumeroTest {
           
           System.out.println(n.stampa());
           
+          System.out.println(n.tavolaPitagorica());
     } 
 }

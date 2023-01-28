@@ -2,25 +2,25 @@ package numero;
 
 public class Numero {
 
-    private int val1;
+    private int valore;
 
-    public Numero(int val1) {
-        this.val1 = val1;
+    public Numero(int valore) {
+        this.valore = valore;
     }
 
     public void setVal1(int v) {
-        val1 = v;
+        valore = v;
     }
 
     public int getVal1() {
-        return val1;
+        return valore;
     }
 
     public String somma(int val2) {
         String s;
         int somma = 0;
 
-        somma = val1 + val2;
+        somma = valore + val2;
 
         s = "La somma dei due valori è: " + somma;
         return s;
@@ -29,11 +29,11 @@ public class Numero {
     public String compareInt(int val2) {
         String b = "";
 
-        if (val1 > val2) {
+        if (valore > val2) {
             b = "Il primo valore è maggiore";
-        } else if (val1 < val2) {
+        } else if (valore < val2) {
             b = "Il secondo valore è maggiore";
-        } else if (val1 == val2) {
+        } else if (valore == val2) {
             b = "I due valori sono uguali";
         }
         return b;
@@ -60,27 +60,43 @@ public class Numero {
     public String moltiplicazionePerSomma(int moltiplicatore) {
         int risultato = 0;
 
-        while (moltiplicatore * val1 != risultato) {
-            risultato += val1;
+        while (moltiplicatore * valore != risultato) {
+            risultato += valore;
         }
         return "il risultato è: " + risultato;
     }
 
+    public String stampa() {
+        String s;
+
+        s = "Il valore 1 vale: " + valore;
+        return s;
+    }
+
     public String tabellina() {
-        String t = "";
+        String t = " ";
         int multiplo = 0;
-        
-        while(multiplo != val1 * 10) {
-            multiplo += val1;
+
+        while (multiplo != valore * 10) {
+            multiplo += valore;
             t += "\nMultiplo: " + multiplo;
         }
         return t;
     }
-    
-    public String stampa() {
-        String s;
 
-        s = "Il valore 1 vale: " + val1;
-        return s;
+    public String tavolaPitagorica() {
+        String testo = "";
+        int cont1 = 1; //colonne
+
+        while (cont1 <= valore) {
+            int cont2 = 1; //righe
+            while (cont2 <= valore) {
+                testo += (cont1 * cont2) + " ";
+                cont2++;
+            }
+            testo += "\n";
+            cont1++;
+        }
+        return testo;
     }
 }
