@@ -5,20 +5,43 @@ public class Countdown {
     private int numPartenza;
 
     public Countdown(int n) {
-        this.numPartenza = n;
+        setNumPartenza(n);
     }
 
     public String conta() {
         String t = "";
+        int cont = numPartenza;
 
-        while (numPartenza >= 0) {
-            t += "\n" + numPartenza;
-            numPartenza--;
+        while (cont >= 0) {
+            t += decodificatore(cont);
+            cont--;
         }
         return t;
     }
 
-    public void setNumPartenza(int n) {
+    private String decodificatore(int cont) {
+        String t = "";
+        switch (cont) {
+            case 0:
+                t = "  ***\n"
+                  + " ** **\n"
+                  + "**   **\n"
+                  + "**   **\n"
+                  + "**   **\n"
+                  + " ** **\n"
+                  + "  ***\n";
+                break;
+                
+            case 1:
+                t =
+                        default:
+                            t 
+                        }
+        t += "\n\n";
+        return t;
+    }
+
+    public final void setNumPartenza(int n) {
         numPartenza = n;
     }
 
@@ -27,7 +50,7 @@ public class Countdown {
     }
 
     public String stampa() {
-        String s = "";
+        String s;
 
         s = "Il numero di partenza è: " + numPartenza;
 

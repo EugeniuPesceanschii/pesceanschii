@@ -99,4 +99,22 @@ public class Numero {
         }
         return testo;
     }
+
+    public String sequenzaFibonacci() {
+        int n1 = 1;
+        int n2 = 0;
+        int n3 = 0;
+        String t = "Sequenza di Fibonacci: ";
+        int c = 1;
+
+        while (valore >= c) {
+            n3 = n1 + n2;
+            n1 = n2;
+            n2 = n3;
+            t += " " + n3;
+
+            c++;
+        }
+        return t;
+    }
 }
