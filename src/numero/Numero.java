@@ -8,11 +8,11 @@ public class Numero {
         this.valore = valore;
     }
 
-    public void setVal1(int v) {
+    public void setValore(int v) {
         valore = v;
     }
 
-    public int getVal1() {
+    public int getValore() {
         return valore;
     }
 
@@ -116,5 +116,17 @@ public class Numero {
             c++;
         }
         return t;
+    }
+
+    public int fattoriale() {
+        int c = 1;
+        int n1 = 1;
+
+        while (c <= valore) {
+            n1 *= c;
+            c++;
+        }
+        Numero m = new Numero(n1);
+        return m.getValore();
     }
 }

@@ -33,9 +33,16 @@ public class Countdown {
                 break;
                 
             case 1:
-                t =
+                t = "   ***\n"
+                  + "  ****\n"
+                  + " ** **\n"
+                  + "**  **\n"
+                  + "    **\n"
+                  + "    **\n"
+                  + "    **\n";
+                break;
                         default:
-                            t 
+                             
                         }
         t += "\n\n";
         return t;

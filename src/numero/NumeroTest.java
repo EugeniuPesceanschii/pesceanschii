@@ -25,5 +25,7 @@ public class NumeroTest {
           System.out.println(n.tavolaPitagorica());
           
           System.out.println(n.sequenzaFibonacci());
+          
+          System.out.println(n.fattoriale());
     } 
 }
