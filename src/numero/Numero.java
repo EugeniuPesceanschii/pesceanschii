@@ -86,10 +86,10 @@ public class Numero {
 
     public String tavolaPitagorica() {
         String testo = "";
-        int cont1 = 1; //colonne
+        int cont1 = 1;
 
         while (cont1 <= valore) {
-            int cont2 = 1; //righe
+            int cont2 = 1;
             while (cont2 <= valore) {
                 testo += (cont1 * cont2) + " ";
                 cont2++;
@@ -128,5 +128,16 @@ public class Numero {
         }
         Numero m = new Numero(n1);
         return m.getValore();
+    }
+
+    public String binario() {
+        String b = "";
+        int n = valore;
+
+        while (n > 0) {
+            b = (n % 2) + b;
+            n /= 2;
+        }
+        return b;
     }
 }

@@ -6,7 +6,7 @@ public class NumeroTest {
         
           int val2 = 4;
           int somma = -1;
-          Numero n = new Numero(5);
+          Numero n = new Numero(15);
           
           System.out.println(n.somma(val2));
           
@@ -27,5 +27,7 @@ public class NumeroTest {
           System.out.println(n.sequenzaFibonacci());
           
           System.out.println(n.fattoriale());
+          
+          System.out.println(n.binario());
     } 
 }
