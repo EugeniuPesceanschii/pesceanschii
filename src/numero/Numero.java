@@ -140,4 +140,75 @@ public class Numero {
         }
         return b;
     }
+
+    public String esadecimale() {
+        String e = "";
+        String nbin = binario();
+        int lungbin = nbin.length();
+
+        e = conversione(e);
+        e += aggiungiZeri(zero);
+        return e;
+    }
+
+    private String aggiungiZeri(String zero) {
+        
+    }
+
+    private String conversione(String e) {
+
+        switch (e) {
+            case "0":
+                e = "0000";
+                break;
+            case "1":
+                e = "0001";
+                break;
+            case "2":
+                e = "0010";
+                break;
+            case "3":
+                e = "0011";
+                break;
+            case "4":
+                e = "0100";
+                break;
+            case "5":
+                e = "0101";
+                break;
+            case "6":
+                e = "0110";
+                break;
+            case "7":
+                e = "0111";
+                break;
+            case "8":
+                e = "1000";
+                break;
+            case "9":
+                e = "1001";
+                break;
+            case "A":
+                e = "1010";
+                break;
+            case "B":
+                e = "1011";
+                break;
+            case "C":
+                e = "1100";
+                break;
+            case "D":
+                e = "1101";
+                break;
+            case "E":
+                e = "1110";
+                break;
+            case "F":
+                e = "1111";
+                break;
+            default:
+                e = "";
+        }
+        return e;
+    }
 }
