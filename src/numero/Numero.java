@@ -141,39 +141,47 @@ public class Numero {
         return b;
     }
 
-    public String esadecimale() {
+    public String esadecimale(){
+        String b = binario();
         String e = "";
-        int cifra = 0;
-        char lettera;
-
-        while (valore > 0) {
-            cifra = valore % 16;
-            if (cifra < 10) {
-                e = cifra + e;
-            } else {
-                lettera = (char) ('A' + cifra - 10);
-                e = lettera + e;
-            }
-            valore /= 16;
+        String bin = "";
+        int lunghezza = b.length();
+        int n1 = b.length() - 4;
+        int i = 0;
+        int pot = 0;
+        
+        int n3 = 0;
+        
+        bin = b.substring(n1, lunghezza - 1);
+        
+        while(lunghezza > 0){
+            bin.charAt(bin - 1);
+            pot += Math.pow(2, i);
+            i ++;
+            lunghezza --;
+            n1 --;
+            e += " " + pot;
         }
-
+                
         return e;
     }
-
+    
     public String baseX(int base) {
         String num = "";
         int cifra = 0;
         char lettera;
-
-        while (valore > 0) {
-            cifra = valore % base;
+        int n1 = valore;
+        
+        while (n1 > 0) {
+            cifra = n1 % base;
             if (cifra < 10) {
                 num = cifra + num;
             } else {
-                lettera = (char) ('A' + cifra - 10);
+                lettera = 'A';
+                lettera += cifra - 10;
                 num = lettera + num;
             }
-            valore /= base;
+            n1 /= base;
         }
 
         return num;

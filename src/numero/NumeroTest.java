@@ -6,7 +6,7 @@ public class NumeroTest {
         
           int val2 = 4;
           int somma = -1;
-          Numero n = new Numero(20);
+          Numero n = new Numero(15);
           
           System.out.println(n.somma(val2));
           
@@ -32,6 +32,6 @@ public class NumeroTest {
           
           System.out.println(n.esadecimale());
           
-          System.out.println(n.baseX(10));
+         // System.out.println(n.baseX(12));
     } 
 }
