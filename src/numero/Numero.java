@@ -141,6 +141,25 @@ public class Numero {
         return b;
     }
 
+    public String esadecimale() {
+        String e = "";
+        int cifra = 0;
+        char lettera;
+
+        while (valore > 0) {
+            cifra = valore % 16;
+            if (cifra < 10) {
+                e = cifra + e;
+            } else {
+                lettera = (char) ('A' + cifra - 10);
+                e = lettera + e;
+            }
+            valore /= 16;
+        }
+
+        return e;
+    }
+
     public String baseX(int base) {
         String num = "";
         int cifra = 0;
