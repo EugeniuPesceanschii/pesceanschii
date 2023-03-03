@@ -141,37 +141,38 @@ public class Numero {
         return b;
     }
 
-    public String esadecimale(){
+    public String esadecimale() {
         String b = binario();
         String e = "";
-        String bin = "";
-        int lunghezza = b.length();
-        int n1 = b.length() - 4;
-        int i = 0;
+        int lunghezza = b.length() - 1;
         int pot = 0;
-        
-        int n3 = 0;
-        
-        bin = b.substring(n1, lunghezza - 1);
-        
-        while(lunghezza > 0){
-            bin.charAt(bin - 1);
-            pot += Math.pow(2, i);
-            i ++;
-            lunghezza --;
-            n1 --;
-            e += " " + pot;
+        int i = 0;
+        int c = lunghezza;
+        char lettera = 'A';
+
+        while (i <= lunghezza) {
+            char bin = b.charAt(c);
+            pot += (int) (Math.pow(2, i) * (bin - 48));
+            c--;
+            i++;
         }
-                
+
+        if (pot < 10) {
+            e = "" + pot;
+        } else {
+            lettera += pot - 10;
+            e = "" + lettera;
+        }
+
         return e;
     }
-    
+
     public String baseX(int base) {
         String num = "";
         int cifra = 0;
         char lettera;
         int n1 = valore;
-        
+
         while (n1 > 0) {
             cifra = n1 % base;
             if (cifra < 10) {
@@ -185,5 +186,32 @@ public class Numero {
         }
 
         return num;
+    }
+
+    public String sommaBinario(String numBin) {
+        String somma = "";
+        String attrBin = "";
+        int n = valore;
+        int i = 0;
+
+        while (n > 0) {
+            attrBin = (n % 2) + attrBin;
+            n /= 2;
+        }
+
+        while (i < attrBin.length() && i < numBin.length()) {
+            char stringa1 = (char) (attrBin.charAt(i) - '0');
+            char stringa2 = (char) (numBin.charAt(i) - '0');
+
+            if (stringa1 + stringa2 == 2) {
+                somma += "10";
+            } else {
+                somma += stringa1 + stringa2;
+            }
+
+            i++;
+        }
+
+        return somma;
     }
 }
