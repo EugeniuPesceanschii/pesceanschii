@@ -191,12 +191,12 @@ public class Numero {
     public String sommaBinario(String numBin) {
         String somma = "";
         String attrBin = "";
-        int n = valore;
+        int binTrasf = valore;
         int i = 0;
 
-        while (n > 0) {
-            attrBin = (n % 2) + attrBin;
-            n /= 2;
+        while (binTrasf > 0) {
+            attrBin = (binTrasf % 2) + attrBin;
+            binTrasf /= 2;
         }
 
         while (i < attrBin.length() && i < numBin.length()) {
