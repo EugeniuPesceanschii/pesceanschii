@@ -14,7 +14,7 @@ public class ProvaVett {
         return vett;
     }
 
-    final public void setVett(int[] vett) {
+    public void setVett(int[] vett) {
         this.vett = new int[vett.length];
         for (int i = 0; i < vett.length; i++) {
             this.vett[i] = vett[i];
@@ -61,11 +61,32 @@ public class ProvaVett {
         boolean risultato = false;
         if (posizione >= 0 && posizione < vett.length) {
             int[] vettore = new int[vett.length - 1];
-            for (int i = 0; i < vettore.length; i++) {
+
+            for (int i = 0; i < vett.length; i++) {
                 if (i < posizione) {
                     vettore[i] = vett[i];
                 } else {
                     vettore[i] = vett[i + 1];
+                }
+            }
+            vett = vettore;
+            risultato = true;
+        }
+        return risultato;
+    }
+
+    public boolean cancellaElementoContrario(int posizione) {
+        boolean risultato = false;
+        if (posizione >= 0 && posizione < vett.length) {
+            int[] vettore = new int[vett.length - 1];
+
+            for (int i = 0; i < vett.length; i++) {
+                if (i < posizione) {
+                    vettore[i] = vett[i];
+                } else {
+                    if (i > posizione) {
+                        vettore[i - 1] = vett[i];
+                    }
                 }
             }
             vett = vettore;
