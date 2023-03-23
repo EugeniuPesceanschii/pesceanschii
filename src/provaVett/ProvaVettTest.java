@@ -8,7 +8,7 @@ public class ProvaVettTest {
 
         ProvaVett v = new ProvaVett(vett);
         
-        System.out.println(v.cancellaElemento(0));
+       /* System.out.println(v.cancellaElemento(0));
         
         System.out.println(v.cercaElemento(5));
         
@@ -16,7 +16,9 @@ public class ProvaVettTest {
         
         System.out.println(v.scambioElementi(3, 8));
         
-        System.out.println(v.sommaElementi());     
+        System.out.println(v.sommaElementi()); */
+        
+        System.out.println(v.aggiungiElemento(3, 69));
 
         System.out.println(v.stampa());
     }

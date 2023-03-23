@@ -5,6 +5,7 @@ import java.util.Random;
 public class ProvaVett {
 
     private int[] vett;
+    private int dimL;
 
     public int[] getVett() {
         int[] vettore = new int[vett.length];
@@ -21,6 +22,14 @@ public class ProvaVett {
         }
     }
 
+    public int getDimL() {
+        return dimL;
+    }
+
+    public void setDimL(int dimL) {
+        this.dimL = dimL;
+    }
+    
     public ProvaVett(int[] vett) {
         setVett(vett);
     }
@@ -122,6 +131,25 @@ public class ProvaVett {
             somma += vett[elementi[i]];
         }
         return somma;
+    }
+
+    public boolean aggiungiElemento(int posizione, int valore) {
+        boolean risultato = false;
+
+        int[] vettore = new int[vett.length];
+//posto per shift? metodo private che faccia lo shift
+        if (posizione < 0 || posizione < vett.length) {
+            for (int i = 0; i < vett.length; i++) {
+                vettore[i] = vett[i];
+                if (i == posizione) {
+                    vettore[i] = valore;
+                    risultato = true;
+                }
+            }
+            vett = vettore;
+
+        }
+        return risultato;
     }
 
     public String stampa() {
