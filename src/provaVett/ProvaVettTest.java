@@ -16,11 +16,14 @@ public class ProvaVettTest {
         
         System.out.println(v.scambioElementi(3, 8));
         
-        System.out.println(v.sommaElementi()); */
+        System.out.println(v.sommaElementi()); 
+   */     
+        System.out.println(v.aggiungiElemento(3, 12));
         
-        System.out.println(v.aggiungiElemento(3, 69));
+        System.out.println(v.numeroElementi());
 
         System.out.println(v.stampa());
-    }
+
+}
     
 }

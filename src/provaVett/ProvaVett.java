@@ -29,7 +29,7 @@ public class ProvaVett {
     public void setDimL(int dimL) {
         this.dimL = dimL;
     }
-    
+
     public ProvaVett(int[] vett) {
         setVett(vett);
     }
@@ -135,19 +135,54 @@ public class ProvaVett {
 
     public boolean aggiungiElemento(int posizione, int valore) {
         boolean risultato = false;
-
         int[] vettore = new int[vett.length];
-//posto per shift? metodo private che faccia lo shift
-        if (posizione < 0 || posizione < vett.length) {
-            for (int i = 0; i < vett.length; i++) {
-                vettore[i] = vett[i];
-                if (i == posizione) {
-                    vettore[i] = valore;
-                    risultato = true;
-                }
-            }
-            vett = vettore;
 
+        if (posizione >= 0 && posizione <= vett.length) {
+            for (int i = 0; i < posizione; i++) {
+                vettore[i] = vett[i];
+            }
+            vettore[posizione] = valore;
+
+            for (int i = posizione + 1; i < vett.length; i++) {
+                vettore[i] = vett[i - 1];
+            }
+            risultato = true;
+            vett = vettore;
+        }
+        return risultato;
+    }
+
+    public int numeroElementi() {
+        int nElementi = 0;
+
+        for (int i = 0; i < vett.length; i++) {
+            if (vett[i] <= 0 || vett[i] > 0) {
+                nElementi++;
+            }
+        }
+        return nElementi;
+    }
+
+    public void unisci(int[] vett) {
+        int[] vettore = new int[vett.length + this.vett.length];
+        int c = 0;
+
+        for (int i = 0; i < vett.length; i++) {
+            vettore[i] = this.vett[i];
+        }
+
+        for (int i = vett.length; i < vettore.length; i++) {
+            vettore[i] = vett[c];
+            c++;
+        }
+        this.vett = vettore;
+    }
+
+    private boolean controlloPosizione(int posizione) {
+        boolean risultato = false;
+
+        if (posizione > 0 && posizione < vett.length) {
+            risultato = true;
         }
         return risultato;
     }
