@@ -38,6 +38,15 @@ public class ArrayInt {
         return risultato;
     }
     
+    public void ensureCapacity(int minCapacity){
+        int[] vettore = new int[minCapacity];
+        
+        for(int i = 0; i < vettore.length; i++){
+            vettore[i] = vett[i];
+        }
+        vett = vettore;
+    }
+    
     public String stampa(){
         String testo = "";
         for(int i = 0; i < vett.length; i++){
