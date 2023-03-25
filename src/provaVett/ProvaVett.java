@@ -135,7 +135,7 @@ public class ProvaVett {
 
     public boolean aggiungiElemento(int posizione, int valore) {
         boolean risultato = false;
-        int[] vettore = new int[vett.length];
+        int[] vettore = new int[vett.length + 1];
 
         if (posizione >= 0 && posizione <= vett.length) {
             for (int i = 0; i < posizione; i++) {
