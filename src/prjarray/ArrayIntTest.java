@@ -13,7 +13,7 @@ public class ArrayIntTest {
         
         System.out.println(a.addFirst(8));
         
-        System.out.println(a.addPos(69, 4));
+        System.out.println(a.addPos(55, 4));
         
         System.out.print(a.stampa());
     }

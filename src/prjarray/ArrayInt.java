@@ -34,7 +34,7 @@ public class ArrayInt {
             risultato = true;
         } else {
             ensureCapacity(minCapacity);
-            for (int i = dimL; i < minCapacity; i++) {
+            for (int i = dimL ; i < minCapacity; i++) {
                 vett[i] = add[c];
                 c++;
             }
