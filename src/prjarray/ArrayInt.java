@@ -22,21 +22,19 @@ public class ArrayInt {
     }
 
     public boolean addAll(int[] add) {
-        int minCapacity = dimL + add.length;
-        boolean risultato = false;
+        int minCapacity = dimL + add.length + 1;
+        boolean risultato;
         int c = 0;
 
         if (vett.length > add.length + dimL) {
-            for (int i = dimL; c < add.length; i++) {
+            for (int i = dimL; c < add.length; i++, c++) {
                 vett[i] = add[c];
-                c++;
             }
             risultato = true;
         } else {
             ensureCapacity(minCapacity);
-            for (int i = dimL ; i < minCapacity; i++) {
+            for (int i = dimL; i < minCapacity - 1; i++, c++) {
                 vett[i] = add[c];
-                c++;
             }
             risultato = true;
         }
@@ -53,28 +51,21 @@ public class ArrayInt {
             shiftDx();
             vett[0] = add;
             risultato = true;
-            dimL++;
         }
-
+        dimL++;
         return risultato;
     }
 
     public boolean addPos(int elem, int pos) {
         boolean risultato = false;
 
-        int[] vettore = new int[vett.length + 1];
+        if (pos >= 0 && pos < vett.length) {
 
-        if (pos >= 0 && pos <= vett.length) {
-            for (int i = 0; i < pos; i++) {
-                vettore[i] = vett[i];
+            for (int i = vett.length - 1; i > pos; i--) {
+                vett[i] = vett[i - 1];
             }
-            vettore[pos] = elem;
-
-            for (int i = pos + 1; i < vett.length; i++) {
-                vettore[i] = vett[i - 1];
-            }
+            vett[pos] = elem;
             risultato = true;
-            vett = vettore;
         }
         return risultato;
     }
@@ -90,7 +81,6 @@ public class ArrayInt {
         int[] vettore = new int[minCapacity];
 
         copiaVett();
-
         vett = vettore;
     }
 
@@ -102,7 +92,7 @@ public class ArrayInt {
         testo += "\n";
         return testo;
     }
-
+//Metodi private:
     private void shiftDx() {
         for (int i = dimL; i < dimL + 1; i++) {
             vett[i] = vett[i - 1];
