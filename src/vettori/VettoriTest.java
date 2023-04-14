@@ -1,7 +1,6 @@
 package vettori;
 
 import java.util.Scanner;
-import java.util.Random;
 
 public class VettoriTest {
 
@@ -11,7 +10,7 @@ public class VettoriTest {
         String[] a = new String[10];
 
         for (int i = 0; i < a.length; i++) {
-           // a[i] = String.valueOf(i + 1) + " ";
+           
             System.out.print("Inserisci il valore dell'elemento n. " + (i + 1) + ": ");
            a[i] = scanner.next();
         }
