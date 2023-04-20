@@ -8,6 +8,12 @@ public class FraseTest {
         
         Frase f = new Frase(parole);
         
+        System.out.println(f.inserimento("EUGII", 2));
+        
+        System.out.println(f.cancellazione(4));
+        
+        System.out.println(f.spostamento(3, 0));
+        
         System.out.println(f.nParole());
         
         System.out.println(f.nCaratteri());
