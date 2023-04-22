@@ -12,12 +12,12 @@ public class FraseTest {
         
         System.out.println(f.cancellazione(4));
         
-        System.out.println(f.spostamento(3, 0));
+        System.out.println(f.spostamento(0, 3));
         
         System.out.println(f.nParole());
         
         System.out.println(f.nCaratteri());
-        
+       
         System.out.println(f.stampa());
     }
     
