@@ -1,4 +1,4 @@
-package frase;
+package frase1;
 
 public class FraseTest {
 
@@ -6,7 +6,7 @@ public class FraseTest {
         
         String[] parole = new String[] {"oggi", "ho", "fatto", "la", "verifica"};
         
-        Frase f = new Frase(parole);
+        Frase1 f = new Frase1(parole);
         
         System.out.println(f.inserimento("EUGII", 2));
         

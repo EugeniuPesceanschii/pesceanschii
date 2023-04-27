@@ -1,55 +1,25 @@
 package frase;
 
-public class Frase {
+import java.util.regex.Pattern;
 
-    private String[] parole;
+public class Frase {
+    private Parola[] arrParole;
     private int dimL;
 
-    public Frase(String[] parole) {
-        this.parole = copiaP(parole);
-        dimL = this.parole.length;
-    }
-
-    public String[] getParole() {
-        return copiaP(parole);
-    }
-
-    public boolean inserimento(String parola, int indice) {
-        boolean risultato = false;
-
-        dimL++;
-        ingrandisci(dimL);
-        shiftDx(indice, dimL);
-        parole[indice] = parola;
-        risultato = true;
-
-        return risultato;
-    }
-
-    public boolean cancellazione(int indice) {
-        boolean risultato = false;
-
-        parole[indice] = "";
-        dimL--;
-        shiftSx(indice, dimL);
-        risultato = true;
-
-        return risultato;
-    }
-
-    public boolean spostamento(int posP, int posA) {
-        boolean risultato = false;
-        String salva = parole[posP];
-        
-        if (posP < posA) {
-            shiftSx(posP, posA);         
-        } else {
-            shiftDx(posA, posP);          
+    public Frase(String testo) {
+        String[] temp = testo.split(Pattern.quote("$"));
+        arrParole = new Parola[temp.length];
+        for (int i = 0; i < temp.length; i++) {
+            arrParole[i] = new Parola(temp[i]);
         }
-        parole[posA] = salva;
-        risultato = true;
+        dimL = temp.length;
+    }
 
-        return risultato;
+    public String stampaFrase() {
+        String testo = "";
+        for (int i = 0; i < dimL; i++)
+            testo += arrParole[i].getTesto() + " ";
+        return testo;
     }
 
     public int nParole() {
@@ -57,50 +27,53 @@ public class Frase {
     }
 
     public int nCaratteri() {
-        int charTot = 0;
-
-        for (int i = 0; i < parole.length; i++) {
-            charTot += parole[i].length();
+        int numeroCaratteri = 0;
+        for (int i = 0; i < dimL; i++) {
+            numeroCaratteri += arrParole[i].nCaratteri();
         }
-        return charTot;
+        return numeroCaratteri;
+    }
+   
+    public void spostaParola(int posP, int posA) {
+        Parola parola = arrParole[posP];
+        if (posP < posA) {
+            shiftSx(posP, posA);
+        } else {
+            shiftDx(posA, posP);
+        }
+        arrParole[posA] = parola;
+
     }
 
-    public String stampa() {
-        String t = "";
-
-        for (int i = 0; i < parole.length; i++) {
-            t += "\nparole[" + i + "] = " + parole[i];
+    public void inserisciParola(String parola, int indice) {
+        if (isFull()) {
+            ingrandisciArray();
         }
-        return t;
+        shiftDx(indice, dimL);
+        arrParole[indice] = new Parola(parola);
+        dimL++;
     }
-
+    
     //Metodi private:
-    private String[] copiaP(String[] arP) {
-        String[] pCopia = new String[arP.length];
-        for (int i = 0; i < arP.length; i++) {
-            pCopia[i] = arP[i];
-        }
-        return pCopia;
-    }
-
     private void shiftDx(int posP, int posA) {
-        for (int i = posA - 1; i > posP; i--) {
-            parole[i] = parole[i - 1];
-        }
+        for (int i = posA; i > posP; i--)
+            arrParole[i] = arrParole[i - 1];
     }
 
     private void shiftSx(int posP, int posA) {
-        for (int i = posP; i < posA; i++) {
-            parole[i] = parole[i + 1];
-        }
+        for (int i = posP; i < posA; i++)
+            arrParole[i] = arrParole[i + 1];
+    }
+    
+    private void ingrandisciArray() {
+        Parola[] arrayIngrandito = new Parola[arrParole.length + 4];
+        for (int i = 0; i < arrParole.length; i++)
+            arrayIngrandito[i] = arrParole[i];
+        arrParole = arrayIngrandito;
     }
 
-    private void ingrandisci(int dimensione) {
-
-        String[] arrayC = new String[dimensione];
-        for (int i = 0; i < dimensione - 1; i++) {
-            arrayC[i] = parole[i];
-        }
-        parole = arrayC;
+    private boolean isFull() {
+        return dimL == arrParole.length;
     }
 }
+
