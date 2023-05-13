@@ -3,7 +3,7 @@ package istat;
 
 public class Istat {
     
-    private Regione[] regioni;
+    private Regione[] egionir;
     
     public Istat(String[] nome, double[] pLatte, double[] pPane){             
         regioni = new Regione[nome.length];

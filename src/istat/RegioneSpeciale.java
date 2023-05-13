@@ -27,7 +27,7 @@ public class RegioneSpeciale {
     public String stampa(){
         String testo = "";
         
-        testo = "Nome regione: " + nome + "\nPrezzo pane: " + pPane 
+        testo = "Nome regione: " + nome + "\nPrezzo pane: " + pPane; 
                 + "\nPrezzo latte: " + pLatte;
         
         return testo;
