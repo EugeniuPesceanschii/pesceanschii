@@ -2,43 +2,94 @@ package numeroBinario;
 
 public class NumeroBinario {
 
-    private String nBin;
+    private String num;
 
     public NumeroBinario(String num) {
-        int numInt = 0;
-        nBin = "";
-        
-        numInt = Integer.valueOf(num);
-
-        while (numInt > 0) {
-            nBin = (numInt % 2) + nBin;
-            numInt /= 2;
-        }
+        this.num = num;
     }
 
-    public int decimale() {
-        int numDec = 0;
-        int i = 0;
-        int c = nBin.length() - 1;
-
-        while (i < nBin.length()) {
-            char bin = nBin.charAt(c);
-            numDec += (int) (Math.pow(2, i) * (bin - 48));
-            c--;
-            i++;
-        }
-
-        return numDec;
+    public String getNum() {
+        return num;
     }
 
     public int digit(int pos) {
-        int cifra = 0;
-
-        if (pos < nBin.length()) {
-            cifra = nBin.charAt(pos) - 48;
-        } else {
-            cifra = -1;
+        int ris = 0;
+        if (num.length() > pos) {
+            if (num.charAt(pos) == '1') {
+                ris = 1;
+            }
         }
-        return cifra;
+        return ris;
+    }
+
+    public int decimale() {
+        int val = 0;
+        int numDimF = num.length();
+        for (int i = 0; i < numDimF; i++) {
+            if (num.charAt(numDimF - 1 - i) == '1') {
+                val += Math.pow(2, i);
+            }
+        }
+        return val;
+    }
+
+    public String sottrazione(String sottr) {
+        sottr = aggiungiZeri(sottr);
+        String ris = "";
+        int riporto = 0;                                                        //indica se bisogna prendere il riporto
+
+        for (int i = num.length() - 1; i >= 0; i--) {
+            int num1 = Character.getNumericValue(num.charAt(i));        //salva il numero in posizione i della prima stringa
+            int num2 = Character.getNumericValue(sottr.charAt(i));      //salva il numero in posizione i della seconda stringa
+            int diff = 0;
+            diff = num1 - num2 - riporto;
+
+            if (diff < 0) {
+                riporto = 1;
+                diff += 2;
+            } else {
+                riporto = 0;
+            }
+            ris = diff + ris;
+        }
+        return ris;
+    }
+
+    public String somma(String add) {
+        add = aggiungiZeri(add);
+
+        String ris = "";
+        int riporto = 0;                                                        //indica se bisogna prendere il riporto
+
+        for (int i = num.length() - 1; i >= 0; i--) {
+            int num1 = Character.getNumericValue(num.charAt(i));                //salva il numero in posizione i della prima stringa
+            int num2 = Character.getNumericValue(add.charAt(i));
+            int somm = num1 + num2 + riporto;
+
+            if (somm > 1) {
+                riporto = 1;
+                somm -= 2;
+            } else {
+                riporto = 0;
+            }
+            ris = somm + ris;
+
+        }
+        if (riporto == 1) {
+            ris = riporto + ris;
+        }
+        return ris;
+    }
+
+    public String stampa() {
+        return "Numero: " + num;
+    }
+    //Metodi private:
+
+    private String aggiungiZeri(String n) {
+        while (num.length() > n.length()) {
+            n = "0" + n;
+        }
+        return n;
     }
 }

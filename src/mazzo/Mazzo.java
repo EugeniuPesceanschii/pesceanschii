@@ -65,14 +65,12 @@ public class Mazzo {
     }
 
     public int cercaCarta(int numCarta) {
-        int pos = 0;
-        for (int i = 0; i < dimL; i++) {
-            if (mazzoCarte[i].getNumero() == numCarta) {
-                pos = i;
-                i = dimL;
-            }
+        int i = 0;
+        
+        while(mazzoCarte[i].getNumero() != numCarta){
+            i++;
         }
-        return pos;
+        return i;
     }
 
     public boolean mescolaCarte() {
@@ -84,7 +82,6 @@ public class Mazzo {
             Random r = new Random();
             pos = r.nextInt(dimL);
             mazzoCarte[pos] = mazzoCarte[pos + 10];
-
             i++;
         }
         return ris;
