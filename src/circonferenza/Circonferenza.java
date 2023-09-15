@@ -1,7 +1,5 @@
 package circonferenza;
 
-import static java.lang.Math.sqrt;
-
 public class Circonferenza {
 
     private double x1A;
@@ -16,28 +14,16 @@ public class Circonferenza {
         this.y2B = y2B;
     }
 
-    public double getRaggio() {
-        double raggio = 0;
-
-        raggio = sqrt(Math.pow((x1A - x2B), 2) + Math.pow((y1A - y2B), 2));
-
-        return raggio;
+    public double getRaggio() {        
+        return Math.sqrt(Math.pow((x1A - x2B), 2) + Math.pow((y1A - y2B), 2));
     }
 
     public double getPerimetro() {
-        double perimetro = 0;
-
-        perimetro = 2 * getRaggio() * Math.PI;
-
-        return perimetro;
+        return 2 * getRaggio() * Math.PI;
     }
 
     public double getArea() {
-        double area = 0;
-
-        area = Math.pow(getRaggio(), 2) * Math.PI;
-
-        return area;
+        return Math.pow(getRaggio(), 2) * Math.PI;
     }
 
     public String stampa() {

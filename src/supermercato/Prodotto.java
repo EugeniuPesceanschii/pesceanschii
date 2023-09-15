@@ -1,7 +1,7 @@
-package prodotto;
+package supermercato;
 
 public class Prodotto {
-
+    
     private double prezzo;
     private int iva;
     private double peso;
@@ -24,6 +24,14 @@ public class Prodotto {
 
     public String getDescrizione() {
         return descrizione;
+    }
+
+    public double getPrezzo() {
+        return prezzo;
+    }
+
+    public double getPeso() {
+        return peso;
     }
     
     public double prezzoIvato() {

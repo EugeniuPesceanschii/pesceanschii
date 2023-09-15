@@ -27,27 +27,15 @@ public class PompaCarburante {
     }
 
     public double carbRimasto() {
-        double cRimasto = 0;
-
-        cRimasto = capacitàCisterna - carburanteVenduto;
-
-        return cRimasto;
+        return capacitàCisterna - carburanteVenduto;
     }
 
     public double valCarbRimasto() {
-        double valore = 0;
-
-        valore = carbRimasto() * prezzoCarburante;
-
-        return valore;
+        return carbRimasto() * prezzoCarburante;
     }
 
     public double costoPieno() {
-        double costo = 0;
-        
-        costo = capacitàCisterna * prezzoCarburante;
-        
-        return costo;
+        return capacitàCisterna * prezzoCarburante;
     }
     
     public String stampa() {
