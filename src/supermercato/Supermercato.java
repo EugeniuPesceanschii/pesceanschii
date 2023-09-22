@@ -1,76 +1,96 @@
 package supermercato;
 
 public class Supermercato {
-    
+
     private String nome;
     private String indirizzo;
     private Prodotto[] prodotti;
+    private int diml;
 
-    public Supermercato(String nome, String indirizzo, int nProdotti, double[] prezzi,
-        int[] iva, double[] peso, double[] tara, String[] nomi, int[] codiceBarre) {
-        prodotti = new Prodotto[nProdotti];
+    public Supermercato(String nome, String indirizzo, Prodotto[] prodotti, int diml) {
+
+        this.prodotti = copia(prodotti, prodotti.length);
         this.nome = nome;
         this.indirizzo = indirizzo;
-        
-        for(int i = 0; i < prodotti.length; i++){
-            prodotti[i] = new Prodotto(prezzi[i], iva[i], peso[i], tara[i], nomi[i],
-            codiceBarre[i]);
-        }
+        this.diml = prodotti.length;
     }
-    
-    public String prezzoAlto(){
+
+    public String prezzoAlto() {
         double prezzo = 0;
         String t = "";
-        for(int i = 0; i < prodotti.length; i++){
-            if(prodotti[i].prezzoIvato() > prezzo){
+        for (int i = 0; i < prodotti.length; i++) {
+            if (prodotti[i].prezzoIvato() > prezzo) {
                 prezzo = prodotti[i].prezzoIvato();
                 t = prodotti[i].getDescrizione();
             }
         }
         return t;
     }
-   
-    public double valoreMerce(){
+
+    public double valoreMerce() {
         double valore = 0;
-        for(int i = 0; i < prodotti.length; i++){
+        for (int i = 0; i < prodotti.length; i++) {
             valore += prodotti[i].getPrezzo();
         }
         return valore;
     }
-    
-    public String pesoMinore(){
+
+    public String pesoMinore() {
         String t = "";
         double peso = 0;
-        for(int i = 0; i < prodotti.length; i++){
-            if(prodotti[i].getPeso() < peso){
+        for (int i = 0; i < prodotti.length; i++) {
+            if (prodotti[i].getPeso() < peso) {
                 peso = prodotti[i].getPeso();
                 t = prodotti[i].getDescrizione();
             }
         }
         return t;
     }
-    
-    public String merciSopraMedia(){
+
+    public String merciSopraMedia() {
         String t = "";
         double media = 0;
-        for(int i = 0; i < prodotti.length; i++){
+        for (int i = 0; i < prodotti.length; i++) {
             media += prodotti[i].getPrezzo();
         }
-        media/= prodotti.length;
-        
-        for(int i = 0; i < prodotti.length; i++){
-            if(prodotti[i].getPrezzo() > media){
+        media /= prodotti.length;
+
+        for (int i = 0; i < prodotti.length; i++) {
+            if (prodotti[i].getPrezzo() > media) {
                 t += "\n" + prodotti[i].getDescrizione();
             }
         }
         return t;
     }
-    
-    public String stampa(){
+
+    public void addProdotto(Prodotto pAdd) {
+        if (diml == this.prodotti.length) {
+            prodotti = copia(prodotti, prodotti.length + 10);
+        }
+
+        prodotti[diml] = pAdd;
+        diml++;
+    }
+
+    public void addProdotto(double prezzo, int iva, double peso, double tara,
+            String descrizione, String codiceBarre) {
+        Prodotto p = new Prodotto(prezzo, iva, peso, tara, descrizione, codiceBarre);
+        addProdotto(p);
+    }
+
+    public String stampa() {
         String t = "";
-        for(int i = 0; i < prodotti.length; i++){
-            t += prodotti[i].stampa();
+        for (int i = 0; i < prodotti.length; i++) {
+            t += prodotti[i].stampa() + "\n" + "\n";
         }
         return t;
+    }
+
+    private Prodotto[] copia(Prodotto[] prodotti, int lungFisica) {
+        Prodotto[] temp = new Prodotto[lungFisica];
+        for (int i = 0; i < prodotti.length; i++) {
+            temp[i] = prodotti[i];
+        }
+        return temp;
     }
 }

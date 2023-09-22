@@ -7,19 +7,16 @@ public class Prodotto {
     private double peso;
     private double tara;
     private String descrizione;
-    private int[] codiceBarre;
+    private String codiceBarre;
 
     public Prodotto(double prezzo, int iva, double peso, double tara,
-            String descrizione, int[] codiceBarre, int dimF) {
+            String descrizione, String codiceBarre) {
         this.prezzo = prezzo;
         this.iva = iva;
         this.peso = peso;
         this.tara = tara;
         this.descrizione = descrizione;
-        this.codiceBarre = new int[dimF];
-        for (int i = 0; i < dimF; i++) {
-            this.codiceBarre[i] = codiceBarre[i];
-        }
+        this.codiceBarre = codiceBarre;
     }
 
     public String getDescrizione() {
@@ -43,37 +40,31 @@ public class Prodotto {
     }
 
     public boolean controlloCodice() {
-        boolean risultato = false;
+        boolean ris = false;
+        int i = 1;
         int resto = 0;
-        shift();
-        for (int i = 1; i < codiceBarre.length - 1; i++) {
-            if ((i % 2) == 0) {
-                resto += codiceBarre[i] * 1;
+
+        while (i < codiceBarre.length() - 1) {
+            if ((i % 2) == 1) {
+                resto += (codiceBarre.charAt(i) - '0') * 3;
             } else {
-                resto += codiceBarre[i] * 3;
+                resto += codiceBarre.charAt(i) - '0';
             }
+            i += 2;
         }
+
         resto %= 10;
-        if (resto == codiceBarre[13]) {
-            risultato = true;
+        if (resto == codiceBarre.charAt(13) - '0') {
+            ris = true;
         }
-        return risultato;
+        return ris;
     }
 
     public String stampa() {
-        String t = "";
-        for (int i = 0; i < codiceBarre.length; i++) {
-            t += " " + codiceBarre[i];
-        }
+        String t = "";        
 
         return "Prezzo: " + prezzo + "\nIva: " + iva + "%" + "\nPeso: " + peso
                 + "\nTara: " + tara + "\nDescrizione: " + descrizione
-                + "\nCodice a barre: " + t;
-    }
-
-    private void shift() {
-        for (int i = codiceBarre.length - 1; i > 0; i--) {
-            codiceBarre[i] = codiceBarre[i - 1];
-        }
-    }
+                + "\nCodice a barre: " + codiceBarre;
+    }   
 }

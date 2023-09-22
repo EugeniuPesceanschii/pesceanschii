@@ -8,13 +8,21 @@ public class SupermercatoTest {
         double[] peso = new double[] {5.30, 4, 1.50, 10, 40};
         double[] tara = new double[] {1.20, 0.30, 5, 4, 3.15};
         String[] nomi = new String[] {"Pane", "Caramelle", "Cioccolato", "Scheda madre"
-                        + "Spinner"};
-        int[] codiceBarre = 80337451505960;
+                        , "Spinner"};
+        String[] codiceBarre = new String[] {"80337451505960", "80337451505960", 
+                        "80337451505960", "80337451505960", "80337451505960"};
        
-        Supermercato s = new Supermercato("Poli", "CasaMia 12", 5, prezzi, iva, peso, 
-                    tara, nomi, codiceBarre);
+        Prodotto[] p = new Prodotto[iva.length];
+        
+        for(int i = 0; i < p.length; i++){
+            p[i] = new Prodotto(prezzi[i], iva[i], peso[i], tara[i], nomi[i], 
+                    codiceBarre[i]); 
+        }
+        
+        Supermercato s = new Supermercato("Poli", "CasaMia 12", p, 4);
         
         System.out.println(s.merciSopraMedia());
+        //System.out.println(s.stampa());
     }
     
 }
