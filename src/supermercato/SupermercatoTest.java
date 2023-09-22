@@ -9,8 +9,8 @@ public class SupermercatoTest {
         double[] tara = new double[] {1.20, 0.30, 5, 4, 3.15};
         String[] nomi = new String[] {"Pane", "Caramelle", "Cioccolato", "Scheda madre"
                         , "Spinner"};
-        String[] codiceBarre = new String[] {"80337451505960", "80337451505960", 
-                        "80337451505960", "80337451505960", "80337451505960"};
+        String[] codiceBarre = new String[] {"8033745150596", "8033745150596", 
+                        "8033745150596", "8033745150596", "8033745150596"};
        
         Prodotto[] p = new Prodotto[iva.length];
         
@@ -21,8 +21,10 @@ public class SupermercatoTest {
         
         Supermercato s = new Supermercato("Poli", "CasaMia 12", p, 4);
         
-        System.out.println(s.merciSopraMedia());
-        //System.out.println(s.stampa());
+        System.out.println(s.cancProdotto("Cioccolato"));
+        
+//        System.out.println(s.merciSopraMedia());
+        System.out.println(s.stampa());
     }
     
 }

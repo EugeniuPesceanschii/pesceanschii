@@ -78,6 +78,23 @@ public class Supermercato {
         addProdotto(p);
     }
 
+    public boolean cancProdotto(String nome){
+        boolean ris = false;
+        Prodotto[] temp = new Prodotto[prodotti.length - 1];
+
+        for(int i = 0; i < temp.length; i++){
+            if(nome == prodotti[i].getDescrizione()){
+                temp[i] = prodotti[i + 1];
+                diml--;
+                ris = true;
+            } else {
+                temp[i] = prodotti[i];
+            }
+        }
+        prodotti = temp;
+        return ris;
+    }
+    
     public String stampa() {
         String t = "";
         for (int i = 0; i < prodotti.length; i++) {
@@ -86,6 +103,14 @@ public class Supermercato {
         return t;
     }
 
+    private void reSize(){
+        Prodotto[] temp = new Prodotto[prodotti.length +(prodotti.length / 100 * 20)];
+        for(int i = 0; i < prodotti.length; i++){
+            temp[i] = prodotti[i];
+        }
+        prodotti = temp;
+    }
+    
     private Prodotto[] copia(Prodotto[] prodotti, int lungFisica) {
         Prodotto[] temp = new Prodotto[lungFisica];
         for (int i = 0; i < prodotti.length; i++) {

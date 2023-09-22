@@ -19,8 +19,25 @@ public class Prodotto {
         this.codiceBarre = codiceBarre;
     }
 
+    public Prodotto(Prodotto prod){
+        this.prezzo = prod.prezzo;
+        this.iva = prod.iva;
+        this.peso = prod.peso;
+        this.tara = prod.tara;
+        this.descrizione = prod.descrizione;
+        this.codiceBarre = prod.codiceBarre;
+    }
+    
     public String getDescrizione() {
         return descrizione;
+    }
+
+    public int getIva() {
+        return iva;
+    }
+
+    public double getTara() {
+        return tara;
     }
 
     public double getPrezzo() {
@@ -30,7 +47,11 @@ public class Prodotto {
     public double getPeso() {
         return peso;
     }
-    
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+       
     public double prezzoIvato() {
         return prezzo / 100 * iva + prezzo;
     }
