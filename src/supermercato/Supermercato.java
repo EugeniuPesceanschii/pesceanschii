@@ -104,7 +104,7 @@ public class Supermercato {
     }
 
     private void reSize(){
-        Prodotto[] temp = new Prodotto[prodotti.length +(prodotti.length / 100 * 20)];
+        Prodotto[] temp = new Prodotto[prodotti.length + prodotti.length / 100 * 20];
         for(int i = 0; i < prodotti.length; i++){
             temp[i] = prodotti[i];
         }
