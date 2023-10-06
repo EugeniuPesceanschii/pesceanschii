@@ -53,6 +53,12 @@ public class Tavolo {
         }
     }
     
+    public void disdici(){
+        if(prenotato){
+            prenotato = !prenotato;
+        }
+    }
+    
     @Override
     public String toString() {
         return "\nCapienza: " + capienza + "\nNumero persone sedute: " + nPersone +
