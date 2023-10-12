@@ -42,8 +42,16 @@ public class Sala {
             i++;
         }
     }
-    
-    //fare toString()
+
+    @Override
+    public String toString() {
+        String t = "";
+        for(int i = 0; i < tavoli.length; i++){
+            t += "\nNumero Tavolo: " + tavoli[i].getnTavolo() + "\nCapienza: " + tavoli[i].getCapienza()
+               + "\nPersone sedute: " + tavoli[i].getnPersone() + "\nPrenotato: " + tavoli[i].isPrenotato();
+        }
+        return "Capienza sala: " + capienza + "Tavoli: " + t + "Numero tavoli: " + dimlTav;
+    }
     
     private void shift(int indice, Tavolo[] temp){
         for(int i = indice; i < tavoli.length; i++){
@@ -58,7 +66,4 @@ public class Sala {
         }
         return indice;
     }*/
-}
-    
-    
-
+}   
