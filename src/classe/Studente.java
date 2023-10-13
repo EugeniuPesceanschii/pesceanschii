@@ -13,6 +13,14 @@ public class Studente {
         this.comuneResidenza = comuneResidenza;
     }
 
+    public Studente(Studente s) {
+        this.matricola = s.matricola;
+        this.cognomeNome = s.cognomeNome;
+        this.annoNascita = s.annoNascita;
+        this.comuneResidenza = s.comuneResidenza;
+    }
+
+    
     public int getMatricola() {
         return matricola;
     }
