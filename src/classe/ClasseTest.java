@@ -9,7 +9,7 @@ public class ClasseTest {
         for(int i = 0; i < studenti.length; i++){
             studenti[i] = new Studente(i + 1, "Cognome nome", 2005, "Trento");
         }
-        studenti[15] = s;
+        studenti[14] = s;
         
         Classe c = new Classe(studenti);
         
