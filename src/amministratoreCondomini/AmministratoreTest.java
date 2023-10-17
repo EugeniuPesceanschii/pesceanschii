@@ -17,6 +17,12 @@ public class AmministratoreTest {
         }
         
         Amministrazione am = new Amministrazione(5, cc);
+        
+        System.out.println(a.toString());
+        
+        System.out.println(c.toString());
+        
+        System.out.println(am.toString());
     }
     
 }

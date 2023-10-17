@@ -17,12 +17,20 @@ public class Appartamento {
         this.millesimi = a.millesimi;
     }
 
+    public int getnAppartamento() {
+        return nAppartamento;
+    }
+
     public double getMillesimi() {
         return millesimi;
     }
 
     public String getNomeProprietario() {
         return nomeProprietario;
+    }
+
+    public void setNomeProprietario(String nomeProprietario) {
+        this.nomeProprietario = nomeProprietario;
     }
 
     @Override
