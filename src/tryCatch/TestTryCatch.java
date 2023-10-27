@@ -1,4 +1,4 @@
-package amministratoreCondomini;
+package tryCatch;
 
 import java.util.Scanner;
 
@@ -7,7 +7,14 @@ public class TestTryCatch {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
+        
         try {
+            Id i = new Id("aa3");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        
+        /* try {
             System.out.println("Inserisci il dividendo: ");
             int dividendo = in.nextInt();
 
@@ -32,6 +39,6 @@ public class TestTryCatch {
             System.err.println("Oltre la lunghezza del vettore");
         } catch (Exception e) {
             System.err.println("Errore generico");
-        }
+        }*/
     }
 }
