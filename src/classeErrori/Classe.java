@@ -4,7 +4,7 @@ public class Classe {
     private Studente capoClasse;
     private Studente[] studenti;
 
-    public Classe(Studente capoClasse, Studente[] studenti) {
+    public Classe(Studente capoClasse, Studente[] studenti) throws Exception {
         this.capoClasse = capoClasse;
         this.studenti = studenti;
     }
@@ -25,9 +25,9 @@ public class Classe {
         this.studenti = studenti;
     }
 
-    public void invertiAttributi(){
+    /*public void invertiAttributi(){
         
-    }
+    }*/
     
     @Override
     public String toString() {

@@ -9,7 +9,7 @@ public class TestTryCatch {
 
         
         try {
-            Id i = new Id("aa3");
+            Id i = new Id("aak3");
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }

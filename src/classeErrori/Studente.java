@@ -1,13 +1,15 @@
 package classeErrori;
 
+import java.io.CharConversionException;
+
 public class Studente {
 
     private String cognome;
     private String nome;
 
     public Studente(String cognome, String nome) throws Exception {
-        this.cognome = cognome;
-        this.nome = nome;
+        setCognome(cognome);
+        setNome(nome);
     }
 
     public Studente(Studente studente) throws Exception {
@@ -23,12 +25,12 @@ public class Studente {
         return nome;
     }
 
-    public void setCognome(String cognome) throws Exception{
-        controllo();
+    public void setCognome(String cognome) throws Exception {
+        controllo(cognome);
     }
 
-    public void setNome(String nome) throws Exception{
-         controllo();
+    public void setNome(String nome) throws Exception {
+        controllo(nome);
     }
 
     @Override
@@ -36,17 +38,21 @@ public class Studente {
         return "\nCognome e nome: " + cognome + " " + nome;
     }
 
-    private void controllo() throws Exception {
+    private void controllo(String nomeOcognome) throws Exception {
         try {
-            if (!Character.isLowerCase(cognome.charAt(0))) {
+            if (Character.isLowerCase(nomeOcognome.charAt(0))) {
                 throw new Exception("Iniziale del cognome minuscola, deve essere maiuscola");
+            } else {
+                this.cognome = nomeOcognome;
             }
-            
-            if (!Character.isLowerCase(nome.charAt(0))) {
+
+            if (Character.isLowerCase(nomeOcognome.charAt(0))) {
                 throw new Exception("Iniziale del nome minuscola, deve essere maiuscola");
+            } else {
+                this.nome = nomeOcognome;
             }
-        } catch (Exception e) {
-            throw new Exception("Cognome scritto in modo errato");
-        }
+        } catch (CharConversionException e) {
+            throw new CharConversionException("Cognome o nome scritto in modo errato");
+        } 
     }
 }
