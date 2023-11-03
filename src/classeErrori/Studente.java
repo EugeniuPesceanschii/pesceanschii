@@ -1,7 +1,5 @@
 package classeErrori;
 
-import java.io.CharConversionException;
-
 public class Studente {
 
     private String cognome;
@@ -26,11 +24,11 @@ public class Studente {
     }
 
     public void setCognome(String cognome) throws Exception {
-        controllo(cognome);
+        controlloCognome(cognome);
     }
 
     public void setNome(String nome) throws Exception {
-        controllo(nome);
+        controlloNome(nome);
     }
 
     @Override
@@ -38,21 +36,44 @@ public class Studente {
         return "\nCognome e nome: " + cognome + " " + nome;
     }
 
-    private void controllo(String nomeOcognome) throws Exception {
+    private void controlloNome(String nome) throws Exception {
+        this.nome = nome;
+
         try {
-            if (Character.isLowerCase(nomeOcognome.charAt(0))) {
+            if (this.nome == null) {
+                throw new Exception("Nome non è stato scritto");
+            }
+            if (Character.isLowerCase(nome.charAt(0))) {
+                throw new Exception("Iniziale del nome minuscola, deve essere maiuscola");
+            }
+            if (Character.isDigit(nome.charAt(0))) {
+                throw new Exception("Il nome non può contenere numeri");
+            }
+        } catch (NullPointerException e) {
+            throw new NullPointerException("Il nome non è stato scritto");
+        } catch (StringIndexOutOfBoundsException e){
+            throw new StringIndexOutOfBoundsException("Nome non è stato scritto");
+        }
+    }
+
+    private void controlloCognome(String cognome) throws Exception {
+        this.cognome = cognome;
+        try {
+            if (this.cognome == null) {
+                throw new Exception("Cognome non è stato scritto");
+            }
+            if (Character.isLowerCase(cognome.charAt(0))) {
                 throw new Exception("Iniziale del cognome minuscola, deve essere maiuscola");
-            } else {
-                this.cognome = nomeOcognome;
             }
 
-            if (Character.isLowerCase(nomeOcognome.charAt(0))) {
-                throw new Exception("Iniziale del nome minuscola, deve essere maiuscola");
-            } else {
-                this.nome = nomeOcognome;
+            if (Character.isDigit(cognome.charAt(0))) {
+                throw new Exception("Il cognome non può contenere numeri");
             }
-        } catch (CharConversionException e) {
-            throw new CharConversionException("Cognome o nome scritto in modo errato");
-        } 
+
+        } catch (NullPointerException e) {
+            throw new NullPointerException("Il cognome non è stato scritto");
+        } catch (StringIndexOutOfBoundsException e){
+            throw new StringIndexOutOfBoundsException("Cognome non è stato scritto");
+        }
     }
 }

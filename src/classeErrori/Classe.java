@@ -1,6 +1,7 @@
 package classeErrori;
 
 public class Classe {
+
     private Studente capoClasse;
     private Studente[] studenti;
 
@@ -25,21 +26,31 @@ public class Classe {
         this.studenti = studenti;
     }
 
-    /*public void invertiAttributi(){
-        
-    }*/
-    
+    public boolean invertiAttributi() throws Exception {
+        Studente s;
+        for (int i = 0; i < studenti.length; i++) {
+            s = studenti[i];
+            studenti[i].setCognome(studenti[i].getNome());
+            studenti[i].setNome(s.getCognome());
+        }
+        return true;
+    }
+
+    public void ordinaPerNome() {
+
+    }
+
     @Override
     public String toString() {
         String t = "";
-        
-        for(int i = 0; i < studenti.length; i++){
+
+        for (int i = 0; i < studenti.length; i++) {
             t += "\n" + studenti[i].toString();
         }
         return "\nCapo classe: " + capoClasse + "\nStudenti: " + t;
     }
-    
-    private void controllo(){
-        
+
+    private void controllo() {
+
     }
 }
