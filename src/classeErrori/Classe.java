@@ -26,18 +26,19 @@ public class Classe {
         this.studenti = studenti;
     }
 
-    public boolean invertiAttributi() throws Exception {
-        Studente s;
+    public void invertiAttributi() throws Exception {
+        Studente[] s = studenti;
+
         for (int i = 0; i < studenti.length; i++) {
-            s = studenti[i];
             studenti[i].setCognome(studenti[i].getNome());
-            studenti[i].setNome(s.getCognome());
+            studenti[i].setNome(s[i].getCognome());
         }
-        return true;
     }
 
-    public void ordinaPerNome() {
-
+    public void ordinaPerNome() throws Exception {
+        for(int i = 0; i < studenti.length; i++){
+            studenti[i].getNome().charAt(0);
+        }
     }
 
     @Override
@@ -49,8 +50,10 @@ public class Classe {
         }
         return "\nCapo classe: " + capoClasse + "\nStudenti: " + t;
     }
-
-    private void controllo() {
-
+    
+    private void shift(int pos){
+        for(int i = pos; i < studenti.length; i++){
+            studenti[i] = studenti[i + 1];
+        }
     }
 }
