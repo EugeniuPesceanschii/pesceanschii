@@ -24,7 +24,7 @@ public class ClasseTest {
             stud[6] = s6;
 
             Classe c = new Classe(s, stud);
-
+            c.invertiAttributi();
             System.out.println(c.toString());
 
         } catch (Exception e) {

@@ -27,11 +27,12 @@ public class Classe {
     }
 
     public void invertiAttributi() throws Exception {
-        Studente[] s = studenti;
+        String s = "";
 
         for (int i = 0; i < studenti.length; i++) {
+            s = studenti[i].getCognome();
             studenti[i].setCognome(studenti[i].getNome());
-            studenti[i].setNome(s[i].getCognome());
+            studenti[i].setNome(s);
         }
     }
 
