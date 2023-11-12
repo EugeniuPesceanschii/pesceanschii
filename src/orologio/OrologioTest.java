@@ -8,13 +8,24 @@ public class OrologioTest {
         
         OrologioDigitale od = new OrologioDigitale(true);
         
-        OrologioCuCu oc = new OrologioCuCu();
+        OrologioCuCu oc = new OrologioCuCu();              
         
-        System.out.println(o.dammiOrario());
+        Orologio[] orologi = new Orologio[] {o, od, oc};
+            
+        System.out.println(o.toString());
         
-        System.out.println(od.selezioneOrario());
+        System.out.println(od.toString());
         
-        System.out.println(oc.AccCarillon());
+        System.out.println(oc.toString());
+        
+        o.aggiungiOre(5);
+       
+        System.out.println(o.toString());
+        
+        System.out.println(od.toString());
+        
+        System.out.println(oc.toString());
+        
     }
     
 }

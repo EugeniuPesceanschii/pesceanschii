@@ -12,6 +12,12 @@ public class Orologio {
         this.secondi = secondi;
     }
 
+    public Orologio(Orologio o) {
+        this.ora = o.ora;
+        this.minuti = o.minuti;
+        this.secondi = o.secondi;
+    }
+    
     public int getOra() {
         return ora;
     }
@@ -39,6 +45,25 @@ public class Orologio {
     public String dammiOrario() {
         String t = "";
 
+        controlloTempo();
+
+        t = ora + ":" + minuti + ":" + secondi;
+
+        return t;
+    }
+
+    public void aggiungiOre(int ore){
+        setOra(ora + ore);
+        
+        controlloTempo();
+    }
+    
+    @Override
+    public String toString() {
+        return "\nOra: " + ora + "\nMinuti: " + minuti + "\nSecondi: " + secondi;
+    }
+
+    private void controlloTempo(){
         if (ora == 24) {
             ora = 0;
         }
@@ -56,15 +81,5 @@ public class Orologio {
             secondi -= 60;
             minuti++;
         }
-
-        t = ora + ":" + minuti + ":" + secondi;
-
-        return t;
     }
-
-    @Override
-    public String toString() {
-        return "\nOra: " + ora + "\nMinuti: " + minuti + "\nSecondi: " + secondi;
-    }
-
 }

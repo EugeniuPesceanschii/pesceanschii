@@ -2,10 +2,10 @@ package orologio;
 
 public class OrologioDigitale extends Orologio {
 
-    private boolean espressOrario;
+    private boolean espressOrario; //Se true, formato 12h, se false, formato 24h
 
     public OrologioDigitale(boolean espressOrario) {
-        super(11, 30, 50);
+        super(13, 30, 50);
         this.espressOrario = espressOrario;
     }
 
@@ -16,7 +16,11 @@ public class OrologioDigitale extends Orologio {
     public String selezioneOrario() {
         String t = "";
         if (espressOrario) {
+            if(getOra() <= 12){
             t = ritornaOrario() + " am";
+            } else {
+                t = ritornaOrario() + " pm";
+            }
         } else {
             t = dammiOrario();
         }
