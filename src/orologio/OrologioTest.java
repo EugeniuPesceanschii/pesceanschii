@@ -11,7 +11,9 @@ public class OrologioTest {
         OrologioCuCu oc = new OrologioCuCu();              
         
         Orologio[] orologi = new Orologio[] {o, od, oc};
-            
+        
+        System.out.println(od.selezioneOrario());
+       /*     
         System.out.println(o.toString());
         
         System.out.println(od.toString());
@@ -24,7 +26,7 @@ public class OrologioTest {
         
         System.out.println(od.toString());
         
-        System.out.println(oc.toString());
+        System.out.println(oc.toString());*/
         
     }
     
