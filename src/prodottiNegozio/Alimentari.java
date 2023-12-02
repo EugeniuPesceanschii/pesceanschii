@@ -1,8 +1,12 @@
 package prodottiNegozio;
 
-;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+
 public class Alimentari extends Prodotti {
 
+    LocalDate dataOdierna = LocalDate.now();
     String data = dataOdierna.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     private Data scadenza;
     private int sconto;
