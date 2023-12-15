@@ -3,8 +3,8 @@ package garage;
 public class LivelloRicarica extends Livello {
 
     private int centralineAtt;
-    
-    public LivelloRicarica() throws Exception{
+
+    public LivelloRicarica() throws Exception {
         super();
     }
 

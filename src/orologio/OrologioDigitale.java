@@ -9,6 +9,10 @@ public class OrologioDigitale extends Orologio {
         this.espressOrario = espressOrario;
     }
 
+    public OrologioDigitale() {
+        super(null);
+    }
+  
     public void setEspressOrario(boolean espressOrario) {
         this.espressOrario = espressOrario;
     }

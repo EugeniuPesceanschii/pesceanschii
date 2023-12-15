@@ -1,7 +1,7 @@
 package garage;
 
-public class Livello extends Garage{
-    
+public class Livello extends Garage {
+
     private Posto[] posti;
 
     public Livello() throws Exception {
@@ -17,7 +17,7 @@ public class Livello extends Garage{
         return posti;
     }
 
-    public void setPosti(Posto[] posti) throws Exception{
+    public void setPosti(Posto[] posti) throws Exception {
         if (posti != null) {
             this.posti = new Posto[posti.length];
 
@@ -27,9 +27,9 @@ public class Livello extends Garage{
         }
         throw new Exception("Il parametro deve essere inizializzato!");
     }
-    
+
     @Override
     public String toString() {
-        return super.toString(); 
+        return super.toString();
     }
 }

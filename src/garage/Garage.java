@@ -8,7 +8,6 @@ public class Garage {
     public Garage() {
     }
 
-    
     public Garage(Livello[] livelli, int nPostiLiberi) throws Exception {
         setLivelli(livelli);
         this.nPostiLiberi = nPostiLiberi;
@@ -22,7 +21,7 @@ public class Garage {
         return nPostiLiberi;
     }
 
-    public void setLivelli(Livello[] livelli) throws Exception{
+    public void setLivelli(Livello[] livelli) throws Exception {
         if (livelli != null) {
             this.livelli = new Livello[livelli.length];
 
@@ -50,11 +49,11 @@ public class Garage {
     @Override
     public String toString() {
         String t = "";
-        
-        for(int i = 0; i < livelli.length; i++){
+
+        for (int i = 0; i < livelli.length; i++) {
             t += livelli[i].toString();
         }
         return "Livelli: " + t + "\nNumero posti liberi: " + nPostiLiberi;
-                
+
     }
 }
