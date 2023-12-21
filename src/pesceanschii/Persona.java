@@ -1,7 +1,5 @@
 package pesceanschii;
 
-import data.Data;
-
 public class Persona {
 
     private String cognome;
@@ -13,81 +11,87 @@ public class Persona {
         numeroIstanze++;
     }
 
-    public Persona(String cognome, String nome, Data dataDiNascita) {
+    public Persona(String cognome, String nome, Data dataDiNascita) throws Exception {
         this();
+        setCognome(cognome);
+        setNome(nome);
+        setDataDiNascita(dataDiNascita);
+    }
+
+    public void setCognome(String cognome) throws Exception {
+        controlloNominativi(cognome);
         this.cognome = cognome;
-        this.nome = nome;
-        this.dataDiNascita = dataDiNascita;
     }
 
     public String getCognome() {
         return cognome;
     }
 
-    public Data getDataDiNascita() {
-        return dataDiNascita;
+    public final void setNome(String nome) throws Exception {
+        controlloNominativi(nome);
+        this.nome = nome;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
-
-    final public void setDataDiNascita(Data dataDiNascita) throws Exception{
-        if (dataDiNascita != null) {
-            Data data = new Data(dataDiNascita);
-
-            Data dataOdierna = new Data();
-
-            if (Data.differenzaInAnni(data, dataOdierna) >= 0) {
-                this.dataDiNascita = data;
-            } else {
-                throw new Exception ("La data di nascita non può essere successiva"
-                        + " a quella attuale");
-            }
+    public void setDataDiNascita(Data dataDiNascita) throws Exception {
+        if (dataDiNascita == null) {
+            throw new Exception("La data di nascita è nulla, cambiala");
         } else {
-            
+            this.dataDiNascita = dataDiNascita;
         }
     }
 
-    public Boolean verificaOmonimia(Persona persona) {
-        Boolean ris = false;
+    public Data getDataDiNascita() {
+        return dataDiNascita;
+    }
 
-        if (persona.getCognome().equals(cognome)
-                && persona.getNome().equals(nome)) {
+    public Boolean verificaOmonomia(Persona persona) {
+        Boolean ris = false;
+        if (nome.equals(persona.getNome()) && cognome.equals(persona.getCognome())) {
             ris = true;
         }
-
         return ris;
     }
 
     public Integer calcolaEta() throws Exception {
-        Data data = new Data();
+        Data dataOggi = new Data();
 
-        return Data.differenzaInAnni(dataDiNascita, data);
+        return dataDiNascita.differenzaInAnni(dataDiNascita, dataOggi);
     }
 
-    public String info() {
-        return "Cognome        : " + cognome + "\nNome           : " + nome
-                + "\nData di nascita: " + dataDiNascita.toString();
+    public String info() throws Exception {
+        String t = "";
+        try {
+            t = "Cognome         :" + cognome
+                    + "\nNome            :" + nome
+                    + "\nData di nascita :" + dataDiNascita.toString();
+        } catch (NullPointerException e) {
+            throw new Exception("Almeno uno degli attributi è null, cambiali");
+        }
+        return t;
     }
 
     private void controlloNominativi(String nominativo) throws Exception {
-        if (nominativo == null || nominativo.isEmpty()) {
-            throw new Exception("La stringa non è inizializzata");
+        if (nominativo == null) {
+            throw new NullPointerException("Il nominativo è nullo, cambialo");
+        } else if (nominativo.isEmpty()) {
+            throw new Exception("Il nominativo non può essere vuoto");
+        } else {
+            String[] split = nominativo.split(" ");
+            for (int i = 0; i < split.length; i++) {
+                if (Character.isLowerCase(split[i].charAt(0))) {
+                    throw new Exception("La prima lettera sia del primo che del secondo nome dev'essere maiuscola");
+                } else {
+                    for (int j = 0; j < split[i].length(); j++) {
+                        if (!Character.isLetter(split[i].charAt(j))) {
+                            throw new Exception("Il nominativo può essere composto solamente da lettere");
+                        }
+                    }
+                }
+            }
         }
-        char c = nominativo.charAt(0);
-        if (Character.isLowerCase(c)) {
-            throw new Exception("Il nominativo non può iniziare con la minuscola");
-        }
-
     }
-
 }
