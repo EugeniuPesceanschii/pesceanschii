@@ -36,7 +36,7 @@ public class Tabellone {
 
         for (int i = 0; i < nRighe; i++) {
             for (int j = 0; j < nColonne; j++) {
-                t += celle[i][j].toString() + "\t";
+                t += "(" + i + ")" + "(" + j + "): " + celle[i][j].toString() + "\t";
             }
             t += "\n";
         }

@@ -29,7 +29,13 @@ public class Celle extends Tabellone {
 
     @Override
     public String toString() {
-        return "è libera?" + isLibera + "\nOggetto: " + oggetto.toString();
+        String t = "";
+        if(isLibera){
+            t = "La cella è libera";
+        } else {
+            t = "La cella non è libera, l'oggetto è: " + oggetto.toString();
+        }
+        return t;
     }
 
 }

@@ -2,6 +2,11 @@ package pescaOggetti;
 
 public class GommaRossa extends Gomme {
 
+    public GommaRossa() {
+        super("Dura", 1);
+    }
+
+    
     public GommaRossa(String tipoDurezza) {
         super(tipoDurezza, 1);
     }
@@ -28,7 +33,7 @@ public class GommaRossa extends Gomme {
 
     @Override
     public String toString() {
-        return "Questa è una gomma rossa, quindi il punteggio non sarà +2 ma +1";
+        return "Gomma Rossa" + "\nQuesta è una gomma rossa, quindi il punteggio non sarà +2 ma +1";
     }
 
 }

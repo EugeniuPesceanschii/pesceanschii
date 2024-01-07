@@ -5,7 +5,7 @@ public class Stilografica extends Penne {
     public Stilografica() {
         super("Stilografica", 5);
     }
-
+    
     @Override
     public Integer getPunteggio() {
         return super.getPunteggio();
@@ -28,7 +28,7 @@ public class Stilografica extends Penne {
 
     @Override
     public String toString() {
-        return "Tipo di penna: " + getTipoPenna() + "\nOggetto speciale! Punteggio: +" + getPunteggio();
+        return "Penna stilografica" + "\nTipo di penna: " + getTipoPenna() + "\nOggetto speciale! Punteggio: +" + getPunteggio();
     }
 
 }

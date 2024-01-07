@@ -4,6 +4,10 @@ public class Matite extends Oggetti {
 
     private String tipoMatita;
 
+    public Matite() {
+        super(1);
+    }
+
     public Matite(String tipo) {
         super(1);
         this.tipoMatita = tipo;
@@ -21,7 +25,7 @@ public class Matite extends Oggetti {
 
     @Override
     public String toString() {
-        return "Tipo della matita: " + tipoMatita + "\nAumenta il punteggio di: +" + getPunteggio();
+        return "Matita" + "\nTipo della matita: " + tipoMatita + "\nAumenta il punteggio di: +" + getPunteggio();
     }
 
 }

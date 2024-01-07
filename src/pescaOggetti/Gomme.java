@@ -1,8 +1,12 @@
 package pescaOggetti;
 
-public class Gomme extends Oggetti{
-    
+public class Gomme extends Oggetti {
+
     private String tipoDurezza;
+
+    public Gomme() {
+        super(2);
+    }
 
     public Gomme(String tipoDurezza, Integer punteggio) {
         super(2);
@@ -11,7 +15,7 @@ public class Gomme extends Oggetti{
 
     @Override
     public Integer getPunteggio() {
-        return super.getPunteggio(); 
+        return super.getPunteggio();
     }
 
     public String getTipoDurezza() {
@@ -20,7 +24,7 @@ public class Gomme extends Oggetti{
 
     @Override
     public void setPunteggio(Integer punteggio) {
-        super.setPunteggio(punteggio); 
+        super.setPunteggio(punteggio);
     }
 
     public void setTipoDurezza(String tipoDurezza) {
@@ -29,7 +33,7 @@ public class Gomme extends Oggetti{
 
     @Override
     public String toString() {
-        return "La durezza della gomma: " + tipoDurezza + "\nPunteggio di questo "
+        return "Gomma" + "\nLa durezza della gomma: " + tipoDurezza + "\nPunteggio di questo "
                 + "oggetto è: +" + getPunteggio();
     }
 }

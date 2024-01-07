@@ -1,8 +1,12 @@
 package pescaOggetti;
 
 public class Penne extends Oggetti {
-    
+
     private String tipoPenna;
+
+    public Penne() {
+        super(4);
+    }
 
     public Penne(String tipoPenna, Integer punteggio) {
         super(4);
@@ -11,7 +15,7 @@ public class Penne extends Oggetti {
 
     @Override
     public Integer getPunteggio() {
-        return super.getPunteggio(); 
+        return super.getPunteggio();
     }
 
     public String getTipoPenna() {
@@ -20,7 +24,7 @@ public class Penne extends Oggetti {
 
     @Override
     public void setPunteggio(Integer punteggio) {
-        super.setPunteggio(punteggio); 
+        super.setPunteggio(punteggio);
     }
 
     public void setTipoPenna(String tipoPenna) {
@@ -29,8 +33,7 @@ public class Penne extends Oggetti {
 
     @Override
     public String toString() {
-        return "Tipologia di penna: " + tipoPenna + "\nPunteggio di questo oggetto: +" + getPunteggio();
+        return "Penna" + "\nTipologia di penna: " + tipoPenna + "\nPunteggio di questo oggetto: +" + getPunteggio();
     }
 
-    
 }
