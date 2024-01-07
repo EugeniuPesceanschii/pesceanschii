@@ -28,7 +28,7 @@ public class Stilografica extends Penne {
 
     @Override
     public String toString() {
-        return "Penna stilografica" + "\nTipo di penna: " + getTipoPenna() + "\nOggetto speciale! Punteggio: +" + getPunteggio();
+        return "Penna stilografica" + "\nTipo di penna: " + getTipoPenna() + "\nOggetto speciale! Punteggio: +" + getPunteggio() + "\n";
     }
 
 }

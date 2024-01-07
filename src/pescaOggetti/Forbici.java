@@ -34,7 +34,7 @@ public class Forbici extends Oggetti {
     @Override
     public String toString() {
         return "Forbici" + "\nIl tipo di punta è: " + tipoPunta + "\nPunteggio di questo oggetto: "
-                + "+1" + " per il giocatore che ha pescato, -1 per gli altri";
+                + "+1" + " per il giocatore che ha pescato, -1 per gli altri\n";
     }
 
 }

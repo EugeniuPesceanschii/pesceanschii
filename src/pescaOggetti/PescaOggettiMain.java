@@ -22,25 +22,25 @@ public class PescaOggettiMain {
         Penne[] penne = new Penne[n * 14 / 100];
         Stilografica stilografica = new Stilografica();
 
-        Oggetti[] oggetti = new Oggetti[n * 14 / 100];
+        Oggetti[] oggetti = new Oggetti[num * 4];
         for (int i = 0; i < num; i++) {
             forbici[i] = new Forbici("arrotondata");
             oggetti[i] = forbici[i];
 
         }
-        for (int i = num; i < num * 2; i++) {
-            gomme[i] = new Gomme("Dura", 2);
-            oggetti[i] = gomme[i];
+        for (int i = num, j = 0; i < num * 2; i++, j++) {
+            gomme[j] = new Gomme("Dura", 2);
+            oggetti[i] = gomme[j];
 
         }
-        for (int i = num * 2; i < num * 3; i++) {
-            matite[i] = new Matite("B");
-            oggetti[i] = matite[i];
+        for (int i = num * 2, j = 0; i < num * 3; i++, j++) {
+            matite[j] = new Matite("B");
+            oggetti[i] = matite[j];
 
         }
-        for (int i = num * 3; i < num * 4; i++) {
-            penne[i] = new Penne("Bic", 4);
-            oggetti[i] = penne[i];
+        for (int i = num * 3, j = 0; i < num * 4; i++, j++) {
+            penne[j] = new Penne("Bic", 4);
+            oggetti[i] = penne[j];
 
         }
 

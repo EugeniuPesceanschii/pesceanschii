@@ -33,7 +33,7 @@ public class Penne extends Oggetti {
 
     @Override
     public String toString() {
-        return "Penna" + "\nTipologia di penna: " + tipoPenna + "\nPunteggio di questo oggetto: +" + getPunteggio();
+        return "Penna" + "\nTipologia di penna: " + tipoPenna + "\nPunteggio di questo oggetto: +" + getPunteggio() + "\n";
     }
 
 }

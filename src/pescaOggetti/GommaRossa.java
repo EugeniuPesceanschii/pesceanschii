@@ -33,7 +33,7 @@ public class GommaRossa extends Gomme {
 
     @Override
     public String toString() {
-        return "Gomma Rossa" + "\nQuesta è una gomma rossa, quindi il punteggio non sarà +2 ma +1";
+        return "Gomma Rossa" + "\nQuesta è una gomma rossa, quindi il punteggio non sarà +2 ma +1\n";
     }
 
 }

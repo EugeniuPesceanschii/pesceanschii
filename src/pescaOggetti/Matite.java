@@ -25,7 +25,7 @@ public class Matite extends Oggetti {
 
     @Override
     public String toString() {
-        return "Matita" + "\nTipo della matita: " + tipoMatita + "\nAumenta il punteggio di: +" + getPunteggio();
+        return "Matita" + "\nTipo della matita: " + tipoMatita + "\nAumenta il punteggio di: +" + getPunteggio() + "\n";
     }
 
 }

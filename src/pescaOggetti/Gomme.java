@@ -34,6 +34,6 @@ public class Gomme extends Oggetti {
     @Override
     public String toString() {
         return "Gomma" + "\nLa durezza della gomma: " + tipoDurezza + "\nPunteggio di questo "
-                + "oggetto è: +" + getPunteggio();
+                + "oggetto è: +" + getPunteggio() + "\n";
     }
 }
