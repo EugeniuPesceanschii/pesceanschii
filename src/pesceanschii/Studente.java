@@ -77,9 +77,7 @@ public class Studente extends Persona {
                 voti[0] = voto;
             } else {
                 Float[] temp = new Float[voti.length + 1];
-                System.arraycopy(voti, 0, temp, 0, voti.length);
-                temp[voti.length] = voto;
-                voti = temp;
+                voti = temp.clone();
             }
         }
 
@@ -136,7 +134,8 @@ public class Studente extends Persona {
                 t += "\nvoti            :[";
                 for (int i = 0; i < voti.length; i++) {
                     if (i == voti.length - 1) {
-                        t += voti[i] + "";
+                        t += voti[i] + "" + voti[0].hashCode();
+
                     } else {
                         t += voti[i] + ", ";
                     }
