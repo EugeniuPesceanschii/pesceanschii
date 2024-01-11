@@ -3,11 +3,9 @@ package pescaOggetti;
 public class Partita {
 
     private Giocatori[] giocatori;
-    private Tabellone tabellone;
 
-    public Partita(Giocatori[] giocatori, Tabellone tabellone) {
+    public Partita(Giocatori[] giocatori) {
         this.giocatori = giocatori;
-        this.tabellone = tabellone;
     }
 
     public Giocatori[] getGiocatori() {
@@ -16,14 +14,6 @@ public class Partita {
 
     public void setGiocatori(Giocatori[] giocatori) {
         this.giocatori = giocatori;
-    }
-
-    public Tabellone getTabellone() {
-        return tabellone;
-    }
-
-    public void setTabellone(Tabellone tabellone) {
-        this.tabellone = tabellone;
     }
 
     public void trovaEStampaFattoriSimili(int prodotto) {
@@ -37,7 +27,6 @@ public class Partita {
                 }
             }
         }
-
     }
 
     @Override
@@ -46,7 +35,7 @@ public class Partita {
         for (int i = 0; i < giocatori.length; i++) {
             t += "Giocatore " + i + 1 + ": " + giocatori[i].toString() + "\n";
         }
-        t += tabellone.toString();
+
         return t;
     }
 
