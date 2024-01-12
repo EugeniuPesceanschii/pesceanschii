@@ -1,11 +1,11 @@
 package garage;
 
-public class LivelloRicarica extends Livello {
+public class LivelloRicarica  {
 
     private int centralineAtt;
 
     public LivelloRicarica() throws Exception {
-        super();
+        
     }
 
     public LivelloRicarica(int centralineAtt) {
@@ -22,6 +22,6 @@ public class LivelloRicarica extends Livello {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "";
     }
 }
