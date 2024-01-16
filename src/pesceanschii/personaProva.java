@@ -10,6 +10,7 @@ public class personaProva {
             Studente s = new Studente(4, false, "Rossi", "Marco", nascita);
         
             s.aggiungiVoto(Float.valueOf(5));
+            s.aggiungiVoto(Float.valueOf(7));
             
             System.out.println(s.info());
 
