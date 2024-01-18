@@ -13,7 +13,8 @@ public class Studente extends Persona {
     private Boolean isRipetente;
     private ArrayList<Float> voti;
 
-    public Studente() {
+    public Studente(ArrayList<Float> v) throws Exception {
+        setVoti(v);
         numeroIstanze++;
     }
 
@@ -48,17 +49,20 @@ public class Studente extends Persona {
         if (voti == null) {
             throw new Exception("La lista di voti non può essere null");
         }
-        for (Float voto : voti) {
-            if (voto == null) {
+        for (int i = 0; i < voti.size(); i++) {
+            if (voti.get(i) == null) {
                 throw new Exception("I voti non possono essere null");
-            }
-            if (voto < 0 || voto > 10) {
-                throw new Exception("I voti devono essere compresi tra 0 e 10");
+            } else {
+                if (voti.get(i) < 0 || voti.get(i) > 10) {
+                    throw new Exception("I voti devono essere compresi tra 0 e 10");
+                } else {
+                    this.voti.add(voti.get(i));
+                }
             }
         }
     }
 
-    public Boolean verifcaOmonomia(Studente studente) {
+    /*public Boolean verifcaOmonomia(Studente studente) {
         Boolean ris = false;
 
         if (Objects.equals(studente.getClasse(), classe)
@@ -68,8 +72,7 @@ public class Studente extends Persona {
         }
 
         return ris;
-    }
-
+    }*/
     public void aggiungiVoto(Float voto) throws Exception {
         if (voto == null) {
             throw new Exception("Il voto non può essere nullo");
@@ -80,23 +83,91 @@ public class Studente extends Persona {
         }
     }
 
-    /*public void rimuoviVoto(Integer posizione) throws Exception {
+    public void rimuoviUltimoVoto() {
+        voti.remove(voti.size() - 1);
+    }
+
+    public void rimuoviVoto(Float posizione) throws Exception {
         if (posizione == null) {
             throw new Exception("La posizione non può essere null");
-        } else if (posizione < 0 || posizione >= voti.length) {
+        } else if (posizione < 0 || posizione >= voti.size()) {
             throw new Exception("La posizione inserita non è corretta");
         } else {
-            Float[] temp = new Float[voti.length - 1];
-            for (int i = 0; i < temp.length; i++) {
-                if (i >= posizione) {
-                    temp[i] = voti[i + 1];
-                } else {
-                    temp[i] = voti[i];
-                }
-            }
-            voti = temp;
+            voti.remove(posizione);
         }
-    }*/
+    }
+
+    public void rimuoviVoto2(Float voto) throws Exception {
+        if (voto == null) {
+            throw new Exception("voto è null");
+        } else {
+            int i = 0;
+            while (i < voti.size()) {
+                if (voto.equals(voti.get(i))) {
+                    voti.remove(i);
+                    i = voti.size();
+                }
+                i++;
+            }
+        }
+    }
+
+    public Float votoMinore() {
+        Float votoMin = voti.get(0);
+
+        for (int i = 1; i < voti.size(); i++) {
+            if (voti.get(i) < votoMin) {
+                votoMin = voti.get(i);
+            }
+        }
+        return votoMin;
+    }
+
+    public Float votoMaggiore() {
+        Float votoMagg = voti.get(0);
+
+        for (int i = 1; i < voti.size(); i++) {
+            if (voti.get(i) > votoMagg) {
+                votoMagg = voti.get(i);
+            }
+        }
+        return votoMagg;
+    }
+    
+    public Float mediaVoti() {
+        Float media = new Float(0);
+
+        for (int i = 0; i < voti.size(); i++) {
+            media += voti.get(i);
+        }
+        media /= voti.size();
+        return media;
+    }
+    
+    public void ordinaVotoCrescente(){
+        Float f = new Float(0);
+        for(int i = 0; i < voti.size(); i++){
+            if(voti.get(i) > voti.get(i + 1)){
+                f = voti.get(i);
+                voti.remove(i);
+                voti.add(i, voti.get(i + 1));
+                voti.add(i + 1, f);
+            }
+        }
+    }
+    
+    public void ordinaVotoDecrescente(){
+        Float f = new Float(0);
+        for(int i = 0; i < voti.size(); i++){
+            if(voti.get(i) < voti.get(i + 1)){
+                f = voti.get(i);
+                voti.remove(i);
+                voti.add(i, voti.get(i + 1));
+                voti.add(i + 1, f);
+            }
+        }
+    }
+    
     public Boolean promuovi() {
         Boolean ris = false;
         if (classe < 5) {
@@ -118,29 +189,29 @@ public class Studente extends Persona {
         return ris;
     }
 
-     @Override
+    @Override
     public String info() throws Exception {
         String t = "";
-       // try {
+        try {
             t = "Scuola          :" + SCUOLA
                     + "\nClasse          :" + classe
-                    + "\n" + super.info()
                     + "\nRipetente       :" + (isRipetente ? "si" : "no");
-            
-                t += "\nvoti            :[";
-                for (int i = 0; i < voti.size(); i++) {
-                    if (i == voti.size() - 1) {
-                        t += voti.get(i) + "";
 
-                    } else {
-                        t += voti.get(i) + ", ";
-                    }
+            t += "\nvoti            :[";
+            for (int i = 0; i < voti.size(); i++) {
+                if (i == voti.size() - 1) {
+                    t += voti.get(i) + "";
+
+                } else {
+                    t += voti.get(i) + ", ";
                 }
-                t += "]";
-            
-       /* } catch (NullPointerException e) {
+            }
+            t += "]";
+
+        } catch (NullPointerException e) {
             throw new Exception("Gli attributi non possono essere null");
-        }*/
+
+        }
         return t;
     }
 }
